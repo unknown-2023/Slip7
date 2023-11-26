@@ -1,0 +1,71 @@
+Write a Java Program to implement undo command to test Ceiling fan.
+
+interface Command 
+{
+    public void execute();
+}
+class Fan
+{
+    public void working() {
+        System.out.println("Fan is Working");
+    }
+
+    public void notWorking() {
+        System.out.println("Fan is Not Working");
+    }
+}
+
+class WorkingFan implements Command {
+    Fan r1;
+    public WorkingFan(Fan a) {
+        this.r1 = a;
+    }
+    public void execute() {
+        r1.working();
+    }
+}
+class NotWorkingFan implements Command {
+    Fan r1;
+    public NotWorkingFan(Fan a) {
+        this.r1 = a;
+    }
+    public void execute() {
+        r1.notWorking();
+    }    
+}
+
+class SimpleFanControl {
+    Command c;
+    public SimpleFanControl() 
+    {
+    }
+    public void setCommand(Command command) {
+        c = command;
+    }
+
+    public void buttonWasPressed() {
+        c.execute();
+    }
+}
+
+public class Slip7 {
+    public static void main(String[] args) {
+        SimpleFanControl r1 = new SimpleFanControl();
+        Fan r = new Fan();
+
+        WorkingFan wr = new WorkingFan(r);
+        r1.setCommand(wr);
+        r1.buttonWasPressed();
+        
+        NotWorkingFan nwr = new NotWorkingFan(r);
+        r1.setCommand(nwr);
+        r1.buttonWasPressed();  
+    }
+}
+------------------------------------------------------------------------------------------------
+output
+ * PS I:\My Drive\NRClasses\MCS\Sem 3\SADP\SADPSlipSolutions> java Slip7      
+Fan is Working
+Fan is Not Working
+PS I:\My Drive\NRClasses\MCS\Sem 3\SADP\SADPSlipSolutions>
+ 
