@@ -9,9 +9,9 @@ from sklearn import datasets
 from sklearn import metrics
 
 # Load the Iris dataset
-data = pd.read_csv("Iris.csv")
-X = iris.data
-y = iris.target
+dataset = datasets.load_iris()
+X = dataset.data
+y = dataset.target
 
 # Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
@@ -43,7 +43,7 @@ from sklearn import datasets
 from sklearn import metrics 
 from sklearn.naive_bayes import GaussianNB 
  
-data = pd.read_csv("Iris.csv")
+dataset = datasets.load_iris()
 
 #Creating our Naive Bayes Model
 model = GaussianNB()
