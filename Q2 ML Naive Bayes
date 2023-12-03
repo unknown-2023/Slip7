@@ -9,7 +9,7 @@ from sklearn import datasets
 from sklearn import metrics
 
 # Load the Iris dataset
-iris = datasets.load_iris()
+data = pd.read_csv("Iris.csv")
 X = iris.data
 y = iris.target
 
@@ -43,7 +43,7 @@ from sklearn import datasets
 from sklearn import metrics 
 from sklearn.naive_bayes import GaussianNB 
  
-dataset = datasets.load_iris()
+data = pd.read_csv("Iris.csv")
 
 #Creating our Naive Bayes Model
 model = GaussianNB()
